@@ -14,10 +14,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _controllerDays = TextEditingController();
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _controllerFrom = TextEditingController();
+  final TextEditingController _controllerTo = TextEditingController();
   Future<CTResponse?>? response;
   late OpenAI? chatGPT;
   String kids = "No Kids";
+  String transport = "Road Trip";
   bool _submitted = false;
 
   @override
@@ -35,7 +37,7 @@ class _HomePageState extends State<HomePage> {
 
   void getResult() async {
 
-    String promptData ="create a ${_controllerDays.value.text} days itinerary for the ${_controller.value.text} for a family consisting of ${kids}";
+    String promptData ="create a ${_controllerDays.value.text} days itinerary with  mode of transport as a ${transport} from the ${_controllerFrom.value.text} to the ${_controllerTo.value.text} for a family consisting of ${kids}";
 
     final request = CompleteText(prompt: promptData, model: Model.textDavinci2,maxTokens:500 );
 
@@ -69,7 +71,7 @@ class _HomePageState extends State<HomePage> {
           ),
           body: Form(
             key: _formKey,
-            child: Column(
+            child: SingleChildScrollView(child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(
@@ -140,16 +142,49 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: Text(
+                    "Mode of transport",
+                    style: kSubTitleText,
+                  ),
+                ),
+                RadioListTile(
+                  title: const Text("Flight"),
+                  value: "Flight",
+                  groupValue: transport,
+                  onChanged: (value) {
+                    setState(() {
+                      transport = value.toString();
+                    });
+                  },
+                ),
+                RadioListTile(
+                  title: const Text("Road Trip"),
+                  value: "Road Trip",
+                  groupValue: transport,
+                  onChanged: (value) {
+                    setState(() {
+                      transport = value.toString();
+                    });
+                  },
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
                     "Tell us city you want to visit",
                     style: kSubTitleText,
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.only(left:10.0),
                   child: TextFormField(
-                    controller: _controller,
+                    controller: _controllerFrom,
                     decoration: const InputDecoration(
-                      hintText: 'Enter place',
+                      hintText: 'Enter an Origin',
                     ),
                     validator: (String? value) {
                       if (value == null || value.isEmpty) {
@@ -159,15 +194,41 @@ class _HomePageState extends State<HomePage> {
                     },
                   ),
                 ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left:10.0),
+                  child: TextFormField(
+                    controller: _controllerTo,
+                    decoration: const InputDecoration(
+                      hintText: 'Enter the Destination',
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter place';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
                 Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: ElevatedButton(
+                    style: ButtonStyle( padding: MaterialStateProperty.all(const EdgeInsets.all(10)),shape: MaterialStateProperty.all(
+                      RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    ), ),
                     onPressed: () => getResult(),
                     child: const Center(child: Text("Submit")),
                   ),
                 ),
               ],
-            ),
+            )),
           ));
     }
   }

@@ -12,5 +12,6 @@ TextStyle kTitleText = GoogleFonts.raleway(
 TextStyle kSubTitleText = GoogleFonts.raleway(
   color: Color(0xFF242224),
   fontSize: 18.0,
-  decoration: TextDecoration.none
+  decoration: TextDecoration.none,
+  fontWeight: FontWeight.w500
 );

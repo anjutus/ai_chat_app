@@ -11,7 +11,12 @@ class SearchResult extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
 
-    return FutureBuilder<CTResponse?>(
+    return Scaffold(
+        appBar: AppBar(
+        title: Text("AI Curated Travel Itinerary", style: kTitleText),
+    backgroundColor:const Color.fromRGBO(163,177, 138, 1),
+    ),
+    body: FutureBuilder<CTResponse?>(
         future: gptResponseData,
         builder: (context, snapshot) {
           final text = snapshot.data?.choices.single.text;
@@ -32,7 +37,7 @@ class SearchResult extends StatelessWidget {
                     style: kSubTitleText,
                   ),
                   const SizedBox(
-                    height: 20,
+                    height: 10,
                   )
                   ,Text(
                     text ?? 'Loading...',
@@ -40,7 +45,7 @@ class SearchResult extends StatelessWidget {
                   ),
                 ],))
               );}
-            );
+            ));
 
         }
   }
