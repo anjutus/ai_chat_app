@@ -25,9 +25,7 @@ const apiKey = 'YOUR_CHATGPT_API_KEY';
 
 ## Demo
 
-https://github.com/anjutus/ai_chat_app/assets/119450188/b0b8dafe-92e7-401a-98d5-3d9221ee5c26
-
-p4)
+https://github.com/anjutus/ai_chat_app/assets/119450188/c6004caf-c3a8-48f1-8ca1-dc7691522f8f
 
 ## Acknowledgements
  - Flutter: https://flutter.dev/
