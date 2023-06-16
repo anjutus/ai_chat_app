@@ -9,7 +9,6 @@ class SearchResult extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
 
     return Scaffold(
         appBar: AppBar(
@@ -23,8 +22,6 @@ class SearchResult extends StatelessWidget {
           return Container(
              margin: const EdgeInsets.all(10.0),
              padding: const EdgeInsets.all(10.0),
-            // width: size.width * .86,
-            // height: size.height * .3,
               color: const Color.fromRGBO(241,250,238, 1),
             child: SingleChildScrollView(
               child: Column(

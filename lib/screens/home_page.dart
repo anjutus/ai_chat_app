@@ -13,9 +13,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _controllerDays = TextEditingController();
-  final TextEditingController _controllerFrom = TextEditingController();
-  final TextEditingController _controllerTo = TextEditingController();
+  final TextEditingController _controllerDays = TextEditingController(); //Text input for no. of Days
+  final TextEditingController _controllerFrom = TextEditingController(); //Text input for Origin Location
+  final TextEditingController _controllerTo = TextEditingController(); //Text input for Destination Location
   Future<CTResponse?>? response;
   late OpenAI? chatGPT;
   String kids = "No Kids";
@@ -41,12 +41,8 @@ class _HomePageState extends State<HomePage> {
 
     final request = CompleteText(prompt: promptData, model: Model.textDavinci2,maxTokens:500 );
 
-    String pResponse="No response";
      response =  chatGPT!.onCompletion(request: request);
-     response!.then((value) =>  setState(() {pResponse=value!.choices.last.text;
 
-      //print("response is $pResponse");
-     }));
     setState(() {
       _submitted = true;
     });

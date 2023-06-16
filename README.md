@@ -1,16 +1,33 @@
-# ai_chat_app
+# Travel Itinerary App
 
-A new Flutter project.
+This repository contains a travel itinerary app developed using Flutter and integrated with the ChatGPT API. The app allows users to create their travel itineraries and receive personalized recommendations using the power of artificial intelligence.
 
-## Getting Started
+## Installation
 
-This project is a starting point for a Flutter application.
+##### 1.Clone the repository: git clone https://github.com/anjutus/ai_chat_app.git 
+##### 2.Navigate to the project directory: cd ai_chat_app
+##### 3.Install the required dependencies: flutter pub get
+##### 4.Run the app: flutter run
+\
+Note: Make sure you have the Flutter SDK and Dart installed on your machine.
 
-A few resources to get you started if this is your first Flutter project:
+## Configuration
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+#### To use the ChatGPT API in the app, you need to obtain an API key from OpenAI. Once you have the key, follow these steps:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+##### 1. Create a new folder in lib named constant and in that folder create afile named openai_key.dart.
+##### 2. Define a constant apiKey in the openai_key.dart file and assign it your ChatGPT API key.
+##### 3. Save the file.
+\
+Example openai_key.dart file:
+
+const apiKey = 'YOUR_CHATGPT_API_KEY';
+
+## Demo
+
+![Create your travel itinerary](https://invoiceportalmedia.s3.us-east-2.amazonaws.com/travelgpt1_4dAki6RX.webm)
+
+## Acknowledgements
+ - Flutter: https://flutter.dev/
+- ChatGPT API: https://openai.com/
+ - Third-party libraries and dependencies used in the app are listed in the pubspec.yaml file.
