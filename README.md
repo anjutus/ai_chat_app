@@ -25,7 +25,11 @@ const apiKey = 'YOUR_CHATGPT_API_KEY';
 
 ## Demo
 
-![Create your travel itinerary](https://invoiceportalmedia.s3.us-east-2.amazonaws.com/Untitled+video+-+Made+with+Clipchamp.mp4)
+![Create your travel itinerary](https://invoiceportalmedia.s3.us-east-2.amazonaws.com/Untitled+video+-+Made+with+Clipchamp.m
+
+https://github.com/anjutus/ai_chat_app/assets/119450188/b0b8dafe-92e7-401a-98d5-3d9221ee5c26
+
+p4)
 
 ## Acknowledgements
  - Flutter: https://flutter.dev/
